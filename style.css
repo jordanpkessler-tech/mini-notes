@@ -1,24 +1,107 @@
+:root {
+  --bg: #0b1020;
+  --card: rgba(255, 255, 255, 0.08);
+  --text: #e9ecf1;
+  --muted: rgba(233, 236, 241, 0.7);
+  --border: rgba(255, 255, 255, 0.14);
+  --accent: #4f8cff;
+  --accent2: #7c4dff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 body {
-  font-family: system-ui, sans-serif;
-  background: #f6f7fb;
-  padding: 24px;
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  color: var(--text);
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 28px;
+  background: radial-gradient(1200px 600px at 20% 10%, rgba(79, 140, 255, 0.35), transparent 55%),
+              radial-gradient(1000px 500px at 80% 20%, rgba(124, 77, 255, 0.28), transparent 60%),
+              var(--bg);
 }
 
 .card {
-  max-width: 500px;
-  margin: auto;
-  background: white;
-  padding: 16px;
-  border-radius: 10px;
+  width: min(720px, 100%);
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 20px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+}
+
+h1 {
+  margin: 0 0 12px 0;
+  font-size: 28px;
+  letter-spacing: 0.2px;
 }
 
 form {
   display: flex;
-  gap: 8px;
-  margin-bottom: 12px;
+  gap: 10px;
+  margin: 10px 0 14px;
 }
 
 input {
   flex: 1;
-  padding: 8px;
+  padding: 12px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: rgba(0, 0, 0, 0.25);
+  color: var(--text);
+  outline: none;
+}
+
+input::placeholder {
+  color: var(--muted);
+}
+
+button {
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+button:hover {
+  filter: brightness(1.05);
+}
+
+#noteList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#noteList li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+#noteList li span {
+  overflow-wrap: anywhere;
+}
+
+#noteList li button {
+  padding: 8px 10px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+
+#noteList li button:hover {
+  background: rgba(255, 255, 255, 0.12);
 }
