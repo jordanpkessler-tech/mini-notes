@@ -1,6 +1,7 @@
 const form = document.getElementById("noteForm");
 const input = document.getElementById("noteInput");
 const list = document.getElementById("noteList");
+const countText = document.getElementById("countText");
 
 const STORAGE_KEY = "notes";
 
@@ -23,6 +24,10 @@ function save() {
 
 function render() {
   list.innerHTML = "";
+  if (countText) {
+    const total = notes.length;
+    countText.textContent = `${total} note${total === 1 ? "" : "s"}`;
+  }
 
   notes.forEach((note, index) => {
     const li = document.createElement("li");
